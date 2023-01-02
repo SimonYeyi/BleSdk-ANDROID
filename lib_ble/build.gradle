@@ -1,0 +1,51 @@
+plugins {
+    id 'com.android.library'
+    id 'maven'
+}
+
+android {
+    compileSdkVersion 31
+    buildToolsVersion "31.0.0"
+
+    defaultConfig {
+        packageBuildConfig false
+        minSdkVersion 21
+        targetSdkVersion 31
+        versionCode 1
+        versionName "1.0.0"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    compileOnly 'androidx.appcompat:appcompat:1.1.0'
+}
+
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    archiveClassifier.set("sources")
+}
+
+task javadocJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    archiveClassifier.set("javadoc")
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: mavenLocal().url) {
+                pom.project {
+                    groupId = 'com.sm'
+                    artifactId = 'ble'
+                    packaging = 'aar'
+                    version = android.defaultConfig.versionName
+                }
+            }
+        }
+    }
+}
