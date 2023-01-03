@@ -36,7 +36,7 @@ allprojects {
 ````gradle
 dependencies {
     //...
-    implementation 'com.sm:ble::1.0.0'
+    implementation 'com.sm:ble:1.0.0'
 }
 ````
 
