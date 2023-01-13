@@ -8,7 +8,7 @@
 
 # 特性
 
-1、**内置蓝牙相关权限申请（适配Android12）**
+1、**内置蓝牙相关权限申请（适配Android12-API31）**
 
 2、**内置位置服务开关、蓝牙开关设置页面导航**
 
@@ -70,7 +70,7 @@ public class MyActivity extends AppCompatActivity {
                 //页面销毁时不断开连接
                 .disableAutoDisconnect()
                 //应用以上配置，开始连接
-                .attachTo(this)
+                .connect(this)
                 //连接回调
                 .setCallback(new PeripheralManager.Callback() {
                     @Override
