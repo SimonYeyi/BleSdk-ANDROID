@@ -141,7 +141,7 @@ public class BluetoothPeripheralFragment extends Fragment implements PeripheralM
         return this;
     }
 
-    public BluetoothPeripheralFragment attachTo(FragmentActivity fragmentActivity) {
+    public BluetoothPeripheralFragment connect(FragmentActivity fragmentActivity) {
         fragmentActivity
                 .getSupportFragmentManager()
                 .beginTransaction()
